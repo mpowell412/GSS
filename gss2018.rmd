@@ -1,7 +1,7 @@
 ---
 title: "General Social Survey"
-author: "Your Name"
-date: "Year 2019"
+author: "Monique Powell"
+date: "Oct 17, 2019"
 output: 
   html_document:
     number_sections: true
@@ -38,10 +38,15 @@ levels(mydata4$VOTE12)[2] <- "no in 12"
 
 This data is from the 2018 General Social Survey. The first blocks of R-code has selected down a subset of the data to just 15 variables. It has further removed unwanted factor levels in much of the data. Examine that code to see what it is doing. Finally address this question.  Is opinion on the death penalty (CAPPUN) independent of gun ownership (OWNGUN)?
 
+$H_O$: There is no relationship between the death penalty and gun ownership.
+
+$H_1$: There is a relationship between the death penalty and gun ownership.
 
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
+
+The two variable we're looking at are the death penalty (CAPPUN) and gun ownership (OWNGUN), both factor variables. For this project a barchart will be used for the graphical results and a table1 command for the numerical results.
 
 ##Results
 
@@ -49,17 +54,40 @@ This data is from the 2018 General Social Survey. The first blocks of R-code has
 
 ### Descriptive Results
 
+
 #### Graphical Descriptive Results
 
+The boxchart is a visional aid pointing out that those who believe in the captian punishment are more likely to be gunowners and those who don't believe in the death punishment are not gun owners. 
+
+
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+barchartGC(~CAPPUN + OWNGUN,data=mydata4)
+barchartGC(~CAPPUN + OWNGUN, data=mydata4, type="percent")
+```
 
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~CAPPUN+ OWNGUN, data=mydata4)
+rowPerc(table1)
+colPerc(table1)
+```
+
 ### Inferential Results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+Given the null hypothesis is true 2 percent of the time, we fail to reject the null hypothesis.
+
 
 # Introduction Question 2
 
@@ -67,9 +95,18 @@ This data is from the 2018 General Social Survey. The first blocks of R-code has
 
 Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in the afterlife (POSTLIFE)
 
+
+$H_O$: There is no relationship between the belief in the bigbang theory (BIGBANG) and the afterlife (POSTLIFE).
+
+$H_1$: There is a relationship between the belief in the bigbang theory and the afterlife.
+
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
+
+
+The two variable we're looking at are the belief of the bigbang theory (BIGBANG) and the afterlife (POSTLIFE), both factor variables. For this project a barchart will be used for the graphical results and a table1 command for the numerical results.
+
 
 ##Results
 
@@ -77,27 +114,72 @@ Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in th
 
 ### Descriptive Results
 
+
 #### Graphical Descriptive Results
+
+The boxchart is a visional aid pointing out that those who believe in the bigbang theory and those who believe in the afterlife and no the bigbang theory are about the same proportion.
+
+
+```{r}
+barchartGC(~BIGBANG + POSTLIFE,data=mydata4)
+barchartGC(~BIGBANG + POSTLIFE, data=mydata4, type="percent")
+```
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+According to the boxplot, among those who believe in the bigbang theory and the afterlife is about the same as those who don't believe in  the bibbang theory.
+
+
 #### Numerical Descriptive Results
+
+
+```{r}
+table1 <- xtabs(~BIGBANG+ POSTLIFE, data=mydata4)
+rowPerc(table1)
+colPerc(table1)
+```
+
+
+The numerical suggest there is no relationship between belife in both the bigbang theory and the afterlife. There is not enough evidence.
+
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ### Inferential Results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+Given the null hypothesis is true 8 percent of the time, we fail to reject the null hypothesis.
+
 
 # Introduction Question 3
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
+
 Finally determine if a persons opinion on death penalty (CAPPUN) is independent of their race (RACE).
+
+
+$H_O$: There is no relationship between the death penalty (CAPPUN) and race (RACE).
+
+$H_1$: There is a relationship between the death penalty (CAPPUN) and race (RACE).
+
 
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
+
+
+The two variable we're looking at are the death penalty (CAPPUN) and race (RACEE), both are factor variables. For this project a barchart will be used for the graphical results and a table1 command for the numerical results.
+
 
 ##Results
 
@@ -107,16 +189,40 @@ Finally determine if a persons opinion on death penalty (CAPPUN) is independent 
 
 #### Graphical Descriptive Results
 
+
+```{r}
+barchartGC(~CAPPUN + RACE,data=mydata4)
+barchartGC(~CAPPUN + RACE, data=mydata4, type="percent")
+```
+
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 #### Numerical Descriptive Results
 
+
+```{r}
+table1 <- xtabs(~CAPPUN+ RACE, data=mydata4)
+rowPerc(table1)
+colPerc(table1)
+```
+
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+
+The numerical results poinhts out that the white race are more likely to favor  the death penalty were as the black race are more likey oppose the death penalty than the other races.
+
 
 ### Inferential Results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+Given the null hypothesis is true 8 percent of the time, we fail to reject the null hypothesis.
 
 # Discussion and Conclusion
 
