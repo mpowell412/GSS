@@ -54,10 +54,11 @@ The two variable we're looking at are the death penalty (CAPPUN) and gun ownersh
 
 ### Descriptive Results
 
+The boxplot provide a visual aid suggesting that those who are gun owners are not likely to oppose capital punishment; although those who oppose capital punishment tpyically are not gun owners.
 
 #### Graphical Descriptive Results
 
-The boxchart is a visional aid pointing out that those who believe in the captian punishment are more likely to be gunowners and those who don't believe in the death punishment are not gun owners. 
+The boxchart is a visual aid pointing out that those who are in favor of gun ownership are more likely support capital punishment, whereas those who oppose capital punishment are not gun owners. 
 
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
@@ -67,6 +68,9 @@ barchartGC(~CAPPUN + OWNGUN, data=mydata4, type="percent")
 ```
 
 #### Numerical Descriptive Results
+
+The numerical descriptive results suggest that about 48% of those who are gun owners are in favor of capital punishment whereas 70% of non gun owners oppose capital punishment.
+
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
@@ -114,6 +118,8 @@ The two variable we're looking at are the belief of the bigbang theory (BIGBANG)
 
 ### Descriptive Results
 
+The numerical test suggest that 91% of people who believe in postlife but does not believe in the bigbang theory whereas 81% beleive in both postlife and the bigbang theory. 
+
 
 #### Graphical Descriptive Results
 
@@ -141,7 +147,7 @@ colPerc(table1)
 ```
 
 
-The numerical suggest there is no relationship between belife in both the bigbang theory and the afterlife. There is not enough evidence.
+The numerical descriptive results suggest there is no relationship between belief in both the bigbang theory and the afterlife. There is not enough evidence.
 
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
@@ -187,8 +193,12 @@ The two variable we're looking at are the death penalty (CAPPUN) and race (RACEE
 
 ### Descriptive Results
 
+The boxplot shows that the white race and other race are typically more in favor of capital punishment than the black race.
+
+
 #### Graphical Descriptive Results
 
+The boxplot shows that the black race are more likely to oppose the capital punishment than the white race and the other races in this study.
 
 ```{r}
 barchartGC(~CAPPUN + RACE,data=mydata4)
@@ -209,7 +219,7 @@ colPerc(table1)
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 
-The numerical results poinhts out that the white race are more likely to favor  the death penalty were as the black race are more likey oppose the death penalty than the other races.
+The numerical results points out that 79% of white race, 13% of other race, and 8% of the black race are more likely to favor the death penalty whereas the black race are more likey oppose the death penalty 27%.
 
 
 ### Inferential Results
@@ -217,14 +227,23 @@ The numerical results poinhts out that the white race are more likely to favor  
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
-fisher.test(table1)
 ```
+
+Given the p-value is less than 5 percent, we reject the null hypothesis.
+
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-Given the null hypothesis is true 8 percent of the time, we fail to reject the null hypothesis.
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+Question 1)The boxchart provided a graphical image suggesting that those who are in favor of gun ownership are more likely to support/favor capital punishment, whereas those who oppose capital punishment are not likey to be gun owners. Whereas the numerical test points out that about 48% of those who are gun owners are in favor of capital punishment whereas 70% of non gun owners oppose capital punishment.  
+However given the null hypothesis is true only 2 percent of the time, we fail to reject the null hypothesis.
+
+Question 2) The boxplot provided a graphical image that suggested that the proportion amount of those who believe in the bigbang theory are about the same as those who believe in the afterlife but doesn't believe in the bigbang theory. Whereas the numerical test suggest that 91% of people who believe in postlife but does not believe in the bigbang theory whereas 81% beleive in both postlife and the bigbang theory.The numerical descriptive results suggest there is no relationship between belief in both the bigbang theory and the afterlife. There is not enough evidence. 
+However given the null hypothesis is true 8 percent of the time, we fail to reject the null hypothesis.
+
+Question 3)The boxplot shows that the white race and other race are typically more in favor of capital punishment than the black race.
+The numerical results points out that 79% of white race, 13% of other race, and 8% of the black race are more likely to favor the death penalty whereas the black race are more likey oppose the death penalty 27%.  Given the p-value is less than 5 percent, we reject the null hypothesis.
