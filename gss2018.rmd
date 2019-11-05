@@ -38,9 +38,6 @@ levels(mydata4$VOTE12)[2] <- "no in 12"
 
 This data is from the 2018 General Social Survey. The first blocks of R-code has selected down a subset of the data to just 15 variables. It has further removed unwanted factor levels in much of the data. Examine that code to see what it is doing. Finally address this question.  Is opinion on the death penalty (CAPPUN) independent of gun ownership (OWNGUN)?
 
-$H_O$: There is no relationship between the death penalty and gun ownership.
-
-$H_1$: There is a relationship between the death penalty and gun ownership.
 
 ## Methods
 
@@ -90,7 +87,12 @@ fisher.test(table1)
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-Given the null hypothesis is true only 2 percent of the time, we fail to reject the null hypothesis.
+
+$H_O$: There is no relationship between the death penalty and gun ownership.
+
+$H_1$: There is a relationship between the death penalty and gun ownership.
+
+Our P-Value is 2, the chances of getting this result again are signifinicantly small if the null hypothesis is true. We therefore fail to reject the null hypothesis. It appears that gun ownership and capital punishment are related.
 
 
 # Introduction Question 2
@@ -99,10 +101,6 @@ Given the null hypothesis is true only 2 percent of the time, we fail to reject 
 
 Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in the afterlife (POSTLIFE)
 
-
-$H_O$: There is no relationship between the belief in the bigbang theory (BIGBANG) and the afterlife (POSTLIFE).
-
-$H_1$: There is a relationship between the belief in the bigbang theory and the afterlife.
 
 ## Methods
 
@@ -163,7 +161,12 @@ fisher.test(table1)
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-Given the null hypothesis is true 8 percent of the time, we fail to reject the null hypothesis.
+
+$H_O$: There is no relationship between the belief in the bigbang theory (BIGBANG) and the afterlife (POSTLIFE).
+
+$H_1$: There is a relationship between the belief in the bigbang theory and the afterlife.
+
+Our P-Value is 8, the chances of getting this result again are signifinicantly small if the null hypothesis is true. We therefore fail to reject the null hypothesis. It appears that the belief in the Big Bang Theory and the Afterlife are not related.
 
 
 # Introduction Question 3
@@ -174,17 +177,12 @@ Given the null hypothesis is true 8 percent of the time, we fail to reject the n
 Finally determine if a persons opinion on death penalty (CAPPUN) is independent of their race (RACE).
 
 
-$H_O$: There is no relationship between the death penalty (CAPPUN) and race (RACE).
-
-$H_1$: There is a relationship between the death penalty (CAPPUN) and race (RACE).
-
-
 ## Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
 
-The two variable we're looking at are the death penalty (CAPPUN) and race (RACEE), both are factor variables. For this project a barchart will be used for the graphical results and a table1 command for the numerical results.
+The two variable we're looking at are the death penalty (CAPPUN) and race (RACE), both are factor variables. For this project a barchart will be used for the graphical results and a table1 command for the numerical results.
 
 
 ##Results
@@ -229,7 +227,13 @@ chisq.test(table1)
 chisqtestGC(table1)
 ```
 
-Given the p-value is less than 5 percent, we reject the null hypothesis.
+
+$H_O$: There is no relationship between the death penalty (CAPPUN) and race (RACE).
+
+$H_1$: There is a relationship between the death penalty (CAPPUN) and race (RACE).
+
+Our P-Value is less than 5 percent, the chances of getting this result again are signifinicantly small if the null hypothesis is true. We therefore choose to reject the null hypothesis. It appears that Race and Capital punishment are not related.
+
 
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
